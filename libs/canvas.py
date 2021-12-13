@@ -154,7 +154,7 @@ class Canvas(QWidget):
                 self.repaint()
             self.status.emit("(%d,%d)." % (pos.x(), pos.y()))
             return
-
+        
         # Polygon/Vertex moving.
         if Qt.LeftButton & ev.buttons():
             if self.selectedVertex():
@@ -172,6 +172,11 @@ class Canvas(QWidget):
                 self.shapeMoved.emit()
                 self.repaint()
                 self.status.emit("(%d,%d)." % (pos.x(), pos.y()))
+            else:
+                self.MouseMove = ev.pos() - self.preMousePosition
+                self.preMousePosition = ev.pos() 
+                self.prevPoint = self.pos() + self.MouseMove
+                self.move(self.prevPoint)   
             return
 
         # Just hovering over the canvas, 2 posibilities:
@@ -223,6 +228,7 @@ class Canvas(QWidget):
                 self.selectShapePoint(pos)
                 self.prevPoint = pos
                 self.repaint()
+            self.preMousePosition = ev.pos()
         elif ev.button() == Qt.RightButton and self.editing():
             self.selectShapePoint(pos)
             self.hideBackroundShapes(True)
