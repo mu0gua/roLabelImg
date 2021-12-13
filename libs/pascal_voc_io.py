@@ -53,11 +53,12 @@ class PascalVocWriter:
             Return a pretty-printed XML string for the Element.
         """
         rough_string = ElementTree.tostring(elem, 'utf8')
-        root = etree.fromstring(rough_string)
-        try:
-            return etree.tostring(root, pretty_print=True)
-        except TypeError:
-            return etree.tostring(root)
+        return rough_string
+        #root = etree.fromstring(rough_string)
+        #try:
+        #    return etree.tostring(root, pretty_print=True)
+        #except TypeError:
+        #    return etree.tostring(root)
 
     def genXML(self):
         """
