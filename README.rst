@@ -122,6 +122,10 @@ later <https://www.python.org/downloads/windows/>`__,
 `PyQt4 <https://www.riverbankcomputing.com/software/pyqt/download>`__
 and `install lxml <http://lxml.de/installation.html>`__.
 
+pip install 
+https://pypi.doubanio.com/simple/pyqt5/
+https://pypi.doubanio.com/simple/sip/
+
 Open cmd and go to `roLabelImg <#roLabelimg>`__ directory
 
 .. code::
